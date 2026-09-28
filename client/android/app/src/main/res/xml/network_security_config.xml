@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 南京晓庄学院教务大厅仅配置了 HTTP (80端口)，允许其进行安全受控的明文传输 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">njxzc.edu.cn</domain>
+    </domain-config>
+
+    <!-- 其他所有公网 API 与外部网络流量强制严格走 TLS/HTTPS -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

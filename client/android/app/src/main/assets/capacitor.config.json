@@ -1,0 +1,14 @@
+{
+  "appId": "com.courseschedule.app",
+  "appName": "课程表",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false
+  },
+  "android": {
+    "backgroundColor": "#F6F8FB",
+    "allowMixedContent": false
+  }
+}

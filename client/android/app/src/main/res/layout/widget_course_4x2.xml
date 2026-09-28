@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="5dp">
+
+    <!-- 顶部标题栏：时段标签 + 日期周次 (精简高度，避免挤占课程展示空间) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp">
+
+        <TextView
+            android:id="@+id/widget_header_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_tag_bg"
+            android:paddingLeft="6dp"
+            android:paddingTop="1dp"
+            android:paddingRight="6dp"
+            android:paddingBottom="1dp"
+            android:text="☀️ 今日上午课程"
+            android:textColor="#1D4ED8"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/widget_header_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="第2周 · 周一"
+            android:textColor="#64748B"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/widget_extra_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 内容展示容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 课程列表容器 (最多展示3门高优先级课程) -->
+        <LinearLayout
+            android:id="@+id/widget_courses_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 课程项 1 -->
+            <LinearLayout
+                android:id="@+id/widget_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="2dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="2dp">
+
+                <!-- 左侧时间/节次 -->
+                <LinearLayout
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_time_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="08:00-09:50"
+                        android:textColor="#334155"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/widget_item_section_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="第1-2节"
+                        android:textColor="#64748B"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <!-- 中间分隔竖线 (严禁使用 View，必须使用 ImageView 保证 RemoteViews 兼容) -->
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:background="#CBD5E1" />
+
+                <!-- 右侧课程主信息 (名称、地点全称、教师) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_name_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="课程名称"
+                        android:textColor="#0F172A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <!-- 地点全称：允许折行，严禁截断 -->
+                    <TextView
+                        android:id="@+id/widget_item_room_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="行知组团-E楼302"
+                        android:textColor="#0284C7"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/widget_item_teacher_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:includeFontPadding="false"
+                    android:text="教师名"
+                    android:textColor="#64748B"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- 课程项 2 -->
+            <LinearLayout
+                android:id="@+id/widget_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="2dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="2dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_time_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="10:10-12:00"
+                        android:textColor="#334155"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/widget_item_section_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="第3-4节"
+                        android:textColor="#64748B"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:background="#CBD5E1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="课程名称"
+                        android:textColor="#0F172A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/widget_item_room_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="教学楼-301"
+                        android:textColor="#0284C7"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/widget_item_teacher_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:includeFontPadding="false"
+                    android:text="教师名"
+                    android:textColor="#64748B"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- 课程项 3 -->
+            <LinearLayout
+                android:id="@+id/widget_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="2dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="2dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_time_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="14:00-15:50"
+                        android:textColor="#334155"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/widget_item_section_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="第5-6节"
+                        android:textColor="#64748B"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:background="#CBD5E1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/widget_item_name_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="课程名称"
+                        android:textColor="#0F172A"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/widget_item_room_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="实验楼-402"
+                        android:textColor="#0284C7"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/widget_item_teacher_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:includeFontPadding="false"
+                    android:text="教师名"
+                    android:textColor="#64748B"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 空课表提示 (顺延后若无课展示) -->
+        <LinearLayout
+            android:id="@+id/widget_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/widget_empty_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☕ 当前暂无课程安排"
+                android:textColor="#334155"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/widget_empty_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="享受轻松时光 · 点击查看完整周课表"
+                android:textColor="#94A3B8"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

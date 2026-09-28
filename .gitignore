@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.pem
+*.key
+
+# SQLite Databases & Backups
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.bak
+*.backup
+*.zip
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Android Build artifacts & intermediate caches
+**/build/
+**/.gradle/
+client/android/capacitor-android/build/
+client/android/.gradle/
+client/android/.android-user/
+client/android/build/
+client/android/app/build/
+client/android/local.properties
+client/android/captures/
+client/android/.externalNativeBuild/
+client/android/.cxx/
+*.apk
+*.aab
+dist/*.apk
+
+# Temporary files
+cards_*.txt

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#4A6FA5" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>课程表 - Android 沉浸式校园课表</title>
+  <link rel="stylesheet" href="./src/styles/style.css?v=2.1.1" />
+</head>
+<body>
+  <div id="app">
+    <!-- 头部顶栏 (沉浸式安全区) -->
+    <header class="app-header">
+      <!-- 视图分段控制器 (周视图 / 日视图) -->
+      <div class="view-tabs" role="tablist">
+        <button class="view-tab-btn active" id="tabWeekBtn" role="tab" aria-selected="true">周视图</button>
+        <button class="view-tab-btn" id="tabDayBtn" role="tab" aria-selected="false">日视图</button>
+      </div>
+
+      <!-- 操作图标按钮区 (只保留 导入 和 设置) -->
+      <div class="header-actions">
+        <button class="header-icon-btn highlight-school" id="btnHeaderImport" title="导入课表">
+          <span class="icon">📥</span>
+          <span>导入</span>
+        </button>
+        <button class="header-icon-btn" id="btnHeaderSettings" title="设置与系统">
+          <span class="icon">⚙️</span>
+          <span>设置</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 视图内容视口 -->
+    <main class="view-viewport">
+      <!-- 周视图容器 -->
+      <div class="view-container active" id="weekViewContainer"></div>
+
+      <!-- 日视图容器 -->
+      <div class="view-container" id="dayViewContainer"></div>
+    </main>
+
+    <!-- 悬浮 AI 智能调课胶囊按钮 (微型深黑色) -->
+    <button class="float-ai-btn" id="btnFloatAiAdjust" title="AI 智能调课">
+      <span class="ai-sparkle">✨</span>
+      <span>AI 调课</span>
+    </button>
+
+    <!-- Toast 气泡浮层容器 -->
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+
+  <!-- 应用主脚本 -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
